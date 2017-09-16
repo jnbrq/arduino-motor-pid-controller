@@ -26,7 +26,7 @@ You can start the GUI with following command (of course, after changing the
 working directory to `arduino-motor-pid-controller-gui`):
 
 ```
-python3 pid.py <serial_port_address>
+env SERIAL_PATH=<serial_port_path> SERIAL_BAUD=<serial_baud_rate> python3 pid.py
 ```
 
 If you need more options to configure serial, you can alter the code under
