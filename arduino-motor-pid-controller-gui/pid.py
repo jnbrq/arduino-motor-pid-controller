@@ -4,6 +4,7 @@ import wx
 import wx.lib.newevent
 import serial
 import serial.threaded
+import os
 
 import numpy as np
 import matplotlib
