@@ -331,9 +331,18 @@ class ProcessLine(serial.threaded.LineReader):
         except Exception as e:
             print(e)
 
+    
+def getEnvOrDefault(key, default):
+    try:
+        return (type(default))(os.environ[key])
+    except:
+        return default
+
 
 def main():
-    ser = serial.Serial("/dev/ttyUSB1", 9600)
+    ser = serial.Serial(
+        getEnvOrDefault("SERIAL_PATH", "/dev/ttyUSB0"),
+        getEnvOrDefault("SERIAL_BAUD", 115200))
     app = wx.App()
     frame = MainFrame(None, ser)
     frame.Show()
